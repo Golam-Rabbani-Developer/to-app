@@ -10,7 +10,6 @@ import db from './firebaseinit';
 
 
 function App() {
-  const [finish, setFinish] = useState(false)
   const [newtitle, setTitle] = useState('');
   const [newdescription, setDescription] = useState('')
   const [todo, setTodo] = useState([])
@@ -32,6 +31,10 @@ function App() {
     await updateDoc(doc(db, 'todo', item.id), { title: newtitle, description: newdescription })
   }
 
+  const finishTodo = async (item) => {
+    await updateDoc(doc(db, 'todo', item.id), { title: newtitle, description: newdescription, finish: "Finished" })
+  }
+
   const handleDelete = async (item) => {
     const result = window.confirm('Do want to delete this ?')
     if (result) {
@@ -51,7 +54,7 @@ function App() {
 
 
               {
-                finish ? <p><FaCheck className='check_icon' /></p> : ""
+                item.finish ? <p><FaCheck className='check_icon' /></p> : ""
               }
               <input onBlur={(e) => setTitle(e.target.value)} type="text" name="title" id="title" placeholder='Your Title' defaultValue={item.title} />
 
@@ -59,7 +62,7 @@ function App() {
 
               <button onClick={() => updatetodo(item)} className="edit_btn">Edit</button>
 
-              <button onClick={() => setFinish(!finish)} className="delete_btn">Finish</button>
+              <button onClick={(e) => finishTodo(item)} className="delete_btn">Finish</button>
 
               <button onClick={() => handleDelete(item)} className="delete_btn">Delete</button>
 
