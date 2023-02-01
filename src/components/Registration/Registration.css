@@ -1,0 +1,50 @@
+.form {
+    width: 400px;
+    margin: 10px auto;
+    border: 1px solid rgb(102, 101, 101);
+    padding: 40px;
+    border-radius: 6px;
+}
+
+.form_title {
+    color: white;
+    text-align: center;
+}
+
+.registration_form {
+    margin-bottom: 10px;
+}
+
+.input {
+    border: 1px solid rgb(102, 101, 101);
+    height: 13px;
+    width: 100%;
+    background: rgb(219, 216, 216);
+}
+
+.input_title {
+    color: white;
+    font-size: 15px;
+    margin-bottom: 6px;
+    text-align: start;
+}
+
+.error {
+    color: rgb(135, 7, 7);
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.shift_component {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    margin: 6px 0;
+    cursor: pointer;
+}
+
+.shift_component:hover {
+    font-size: 14.1px;
+    color: aliceblue;
+}
